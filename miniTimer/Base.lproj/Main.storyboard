@@ -1,7 +1,8 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="11134" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="11134"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -673,7 +674,33 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="miniTimer" customModuleProvider="target">
+                    <connections>
+                        <outlet property="statusBarMenu" destination="ioA-jd-GIj" id="7vM-9j-OtK"/>
+                    </connections>
+                </customObject>
+                <menu id="ioA-jd-GIj">
+                    <items>
+                        <menuItem title="Start" id="OZG-G3-JjK">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="startStopTimer:" target="Voe-Tx-rLC" id="X28-WR-Yj0"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Settings" id="6pV-Zl-tRl">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="showSettings:" target="Voe-Tx-rLC" id="giN-JP-VOe"/>
+                            </connections>
+                        </menuItem>
+                        <menuItem title="Quit" id="3Yr-ku-g6R">
+                            <modifierMask key="keyEquivalentModifierMask"/>
+                            <connections>
+                                <action selector="quitAction:" target="Voe-Tx-rLC" id="U1R-9r-Bcg"/>
+                            </connections>
+                        </menuItem>
+                    </items>
+                </menu>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -682,11 +709,11 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                <windowController showSeguePresentationStyle="single" id="B8D-0N-5wS" sceneMemberID="viewController">
+                    <window key="window" title="Settings" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-                        <rect key="contentRect" x="196" y="240" width="480" height="270"/>
+                        <rect key="contentRect" x="550" y="665" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
@@ -703,15 +730,120 @@
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="ViewController" customModule="miniTimer" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
-                        <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
+                        <rect key="frame" x="0.0" y="0.0" width="354" height="138"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="firstBaseline" rowSpacing="15" columnSpacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EDE-TA-IHL">
+                                <rect key="frame" x="20" y="61" width="314" height="57"/>
+                                <rows>
+                                    <gridRow id="7HH-yv-PeZ"/>
+                                    <gridRow id="OU8-lK-gqS"/>
+                                </rows>
+                                <columns>
+                                    <gridColumn id="yio-W3-gvv"/>
+                                    <gridColumn id="V0i-F0-kHN"/>
+                                    <gridColumn id="GK0-FQ-tOi"/>
+                                </columns>
+                                <gridCells>
+                                    <gridCell row="7HH-yv-PeZ" column="yio-W3-gvv" xPlacement="trailing" id="Azz-dV-VQN">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Nu-1z1">
+                                            <rect key="frame" x="95" y="38" width="49" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Timing:" id="pDL-UG-x8z">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="7HH-yv-PeZ" column="V0i-F0-kHN" id="3kF-jQ-c8z">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PED-42-BpP">
+                                            <rect key="frame" x="152" y="36" width="100" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rM3-Mf-MhV"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" title="60" drawsBackground="YES" id="aJp-ru-i5k">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="7HH-yv-PeZ" column="GK0-FQ-tOi" id="cB8-RV-YhF">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJT-vi-whT">
+                                            <rect key="frame" x="260" y="38" width="56" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="seconds" id="XG9-gj-OQM">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="OU8-lK-gqS" column="yio-W3-gvv" id="x4y-Wl-h7r">
+                                        <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qIJ-Cb-qSU">
+                                            <rect key="frame" x="-2" y="1" width="146" height="18"/>
+                                            <buttonCell key="cell" type="check" title="Start ticking around:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Ni4-gp-69N">
+                                                <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                                <font key="font" metaFont="system"/>
+                                            </buttonCell>
+                                            <connections>
+                                                <action selector="tickingCheckAction:" target="XfG-lQ-9wD" id="0z6-jq-UAM"/>
+                                            </connections>
+                                        </button>
+                                    </gridCell>
+                                    <gridCell row="OU8-lK-gqS" column="V0i-F0-kHN" id="Ibq-mX-HLH">
+                                        <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N7L-hs-qO1">
+                                            <rect key="frame" x="152" y="0.0" width="100" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="100" id="TlO-Uc-XNG"/>
+                                            </constraints>
+                                            <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" enabled="NO" sendsActionOnEndEditing="YES" borderStyle="bezel" title="5" drawsBackground="YES" id="Cv8-BY-Cya">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                    <gridCell row="OU8-lK-gqS" column="GK0-FQ-tOi" id="tT1-jY-uiS">
+                                        <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="paV-2a-DLI">
+                                            <rect key="frame" x="260" y="2" width="56" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="seconds" id="GpR-C7-LB7">
+                                                <font key="font" usesAppearanceFont="YES"/>
+                                                <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                            </textFieldCell>
+                                        </textField>
+                                    </gridCell>
+                                </gridCells>
+                            </gridView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kuY-Sv-t0B">
+                                <rect key="frame" x="142" y="13" width="70" height="32"/>
+                                <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WdG-5H-4Sy">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="startStopAction:" target="XfG-lQ-9wD" id="VW2-Ap-Ul2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="kuY-Sv-t0B" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="AAN-1I-7f2"/>
+                            <constraint firstItem="EDE-TA-IHL" firstAttribute="centerX" secondItem="m2S-Jp-Qdl" secondAttribute="centerX" id="aGL-pT-OOE"/>
+                            <constraint firstItem="EDE-TA-IHL" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="20" id="ifx-vb-4Jk"/>
+                            <constraint firstItem="kuY-Sv-t0B" firstAttribute="top" secondItem="EDE-TA-IHL" secondAttribute="bottom" constant="20" id="snb-1o-KYo"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="startStopButton" destination="kuY-Sv-t0B" id="Gva-8K-VMQ"/>
+                        <outlet property="tickingTextField" destination="N7L-hs-qO1" id="cVm-wY-52f"/>
+                        <outlet property="timingTextField" destination="PED-42-BpP" id="iBP-hV-ipC"/>
+                    </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="75" y="655"/>
+            <point key="canvasLocation" x="75" y="668"/>
         </scene>
     </scenes>
 </document>
