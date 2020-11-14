@@ -72,7 +72,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             
             // Insert menu item to show how much time is left
             let timeLeftMenu = NSMenuItem()
-            timeLeftMenu.title = timeLeft(with: TimeManager.sharedInstance.timing)
+            timeLeftMenu.title = timeLeft(with: TimeManager.sharedInstance.timer)
             statusItem.menu?.insertItem(timeLeftMenu, at: 0)
             
             // Update start/stop menu item

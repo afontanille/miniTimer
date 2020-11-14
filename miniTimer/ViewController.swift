@@ -10,18 +10,18 @@ import Cocoa
 
 class ViewController: NSViewController {
 
-    @IBOutlet weak var timingTextField: NSTextField!
+    @IBOutlet weak var timerTextField: NSTextField!
     @IBOutlet weak var tickingTextField: NSTextField!
     @IBOutlet weak var startStopButton: NSButton!
     
     private enum TextField: Int {
-        case timing = 1
+        case timer = 1
         case ticking = 2
         
         func setValue(_ newValue: Int) {
             switch self {
-            case .timing:
-                TimeManager.sharedInstance.timing = newValue
+            case .timer:
+                TimeManager.sharedInstance.timer = newValue
             case .ticking:
                 TimeManager.sharedInstance.ticking = newValue
             }
@@ -32,12 +32,12 @@ class ViewController: NSViewController {
         super.viewDidLoad()
 
         // Configure TimeManager with intial settings
-        TimeManager.sharedInstance.timing = timingTextField.integerValue
+        TimeManager.sharedInstance.timer = timerTextField.integerValue
         TimeManager.sharedInstance.ticking = tickingTextField.integerValue
         
         // Set view controller as text fields' delegates to get user inputs
-        timingTextField.delegate = self
-        timingTextField.tag = TextField.timing.rawValue
+        timerTextField.delegate = self
+        timerTextField.tag = TextField.timer.rawValue
         tickingTextField.delegate = self
         tickingTextField.tag = TextField.ticking.rawValue
     }

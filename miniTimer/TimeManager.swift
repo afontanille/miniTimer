@@ -13,23 +13,23 @@ class TimeManager {
     
     static let sharedInstance = TimeManager()
 
-    var timing = 0
+    var timer = 0
     
     var ticking = 0
 
     var tickingEnabled: Bool = false
     
     func startTimer() {
-        currentTime = timing
-        timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
+        currentTime = timer
+        scheduledTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (_) in
             self.updateTime()
         }
-        RunLoop.current.add(timer!, forMode: .common)
+        RunLoop.current.add(scheduledTimer!, forMode: .common)
     }
     
     func stopTimer(playSound: Bool = true) {
-        timer?.invalidate()
-        timer = nil
+        scheduledTimer?.invalidate()
+        scheduledTimer = nil
         
         if playSound {
             NSSound(named: "Glass")?.play()
@@ -38,7 +38,7 @@ class TimeManager {
     
     // MARK: - Private vars & methods
     
-    private var timer: Timer?
+    private var scheduledTimer: Timer?
     
     private var currentTime = 0
     
@@ -49,9 +49,9 @@ class TimeManager {
     private init() {}
     
     private func updateTime() {
-        let quarter = Int(0.25 * TimeInterval(timing))
-        let half = Int(0.5 * TimeInterval(timing))
-        let almostFull = Int(0.75 * TimeInterval(timing))
+        let quarter = Int(0.25 * TimeInterval(timer))
+        let half = Int(0.5 * TimeInterval(timer))
+        let almostFull = Int(0.75 * TimeInterval(timer))
         
         // One second elapsed
         currentTime -= 1

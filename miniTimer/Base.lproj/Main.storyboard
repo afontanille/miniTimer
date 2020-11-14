@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="16097"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -736,7 +737,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <gridView xPlacement="leading" yPlacement="bottom" rowAlignment="firstBaseline" rowSpacing="15" columnSpacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="EDE-TA-IHL">
-                                <rect key="frame" x="20" y="61" width="314" height="57"/>
+                                <rect key="frame" x="17" y="61" width="320" height="57"/>
                                 <rows>
                                     <gridRow id="7HH-yv-PeZ"/>
                                     <gridRow id="OU8-lK-gqS"/>
@@ -749,8 +750,8 @@
                                 <gridCells>
                                     <gridCell row="7HH-yv-PeZ" column="yio-W3-gvv" xPlacement="trailing" id="Azz-dV-VQN">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Jga-Nu-1z1">
-                                            <rect key="frame" x="95" y="38" width="49" height="16"/>
-                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Timing:" id="pDL-UG-x8z">
+                                            <rect key="frame" x="107" y="38" width="43" height="16"/>
+                                            <textFieldCell key="cell" lineBreakMode="clipping" title="Timer:" id="pDL-UG-x8z">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                 <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -759,7 +760,7 @@
                                     </gridCell>
                                     <gridCell row="7HH-yv-PeZ" column="V0i-F0-kHN" id="3kF-jQ-c8z">
                                         <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="PED-42-BpP">
-                                            <rect key="frame" x="152" y="36" width="100" height="21"/>
+                                            <rect key="frame" x="158" y="36" width="100" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="100" id="rM3-Mf-MhV"/>
                                             </constraints>
@@ -772,7 +773,7 @@
                                     </gridCell>
                                     <gridCell row="7HH-yv-PeZ" column="GK0-FQ-tOi" id="cB8-RV-YhF">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="fJT-vi-whT">
-                                            <rect key="frame" x="260" y="38" width="56" height="16"/>
+                                            <rect key="frame" x="266" y="38" width="56" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="seconds" id="XG9-gj-OQM">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -782,7 +783,7 @@
                                     </gridCell>
                                     <gridCell row="OU8-lK-gqS" column="yio-W3-gvv" id="x4y-Wl-h7r">
                                         <button key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qIJ-Cb-qSU">
-                                            <rect key="frame" x="-2" y="1" width="146" height="18"/>
+                                            <rect key="frame" x="-2" y="1" width="150" height="18"/>
                                             <buttonCell key="cell" type="check" title="Start ticking around:" bezelStyle="regularSquare" imagePosition="left" alignment="left" inset="2" id="Ni4-gp-69N">
                                                 <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
                                                 <font key="font" metaFont="system"/>
@@ -794,7 +795,7 @@
                                     </gridCell>
                                     <gridCell row="OU8-lK-gqS" column="V0i-F0-kHN" id="Ibq-mX-HLH">
                                         <textField key="contentView" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="N7L-hs-qO1">
-                                            <rect key="frame" x="152" y="0.0" width="100" height="21"/>
+                                            <rect key="frame" x="158" y="0.0" width="100" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="100" id="TlO-Uc-XNG"/>
                                             </constraints>
@@ -807,7 +808,7 @@
                                     </gridCell>
                                     <gridCell row="OU8-lK-gqS" column="GK0-FQ-tOi" id="tT1-jY-uiS">
                                         <textField key="contentView" horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="paV-2a-DLI">
-                                            <rect key="frame" x="260" y="2" width="56" height="16"/>
+                                            <rect key="frame" x="266" y="2" width="56" height="16"/>
                                             <textFieldCell key="cell" lineBreakMode="clipping" title="seconds" id="GpR-C7-LB7">
                                                 <font key="font" usesAppearanceFont="YES"/>
                                                 <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -818,7 +819,7 @@
                                 </gridCells>
                             </gridView>
                             <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="kuY-Sv-t0B">
-                                <rect key="frame" x="142" y="13" width="70" height="32"/>
+                                <rect key="frame" x="145" y="14" width="64" height="32"/>
                                 <buttonCell key="cell" type="push" title="Start" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="WdG-5H-4Sy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
@@ -838,7 +839,7 @@
                     <connections>
                         <outlet property="startStopButton" destination="kuY-Sv-t0B" id="Gva-8K-VMQ"/>
                         <outlet property="tickingTextField" destination="N7L-hs-qO1" id="cVm-wY-52f"/>
-                        <outlet property="timingTextField" destination="PED-42-BpP" id="iBP-hV-ipC"/>
+                        <outlet property="timerTextField" destination="PED-42-BpP" id="KWI-gL-SfA"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
