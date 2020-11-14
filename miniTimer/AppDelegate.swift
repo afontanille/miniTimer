@@ -51,7 +51,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
     
     func startStopTimer() {
-        guard let startMenuItem = statusItem.menu?.items.first else { return }
+        guard let startMenuItem = statusItem.menu?.items.filter({ $0.title == "Start" || $0.title == "Stop" }).first else { return }
         startStopTimer(startMenuItem)
     }
     
