@@ -66,13 +66,19 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         switch sender.title {
         
         case startTitle:
+            let timer = TimeManager.sharedInstance.timer
+            
+            guard timer > 0 else {
+                return
+            }
+            
             TimeManager.sharedInstance.startTimer()
             
             setStatusBarIcon(status: .full)
             
             // Insert menu item to show how much time is left
             let timeLeftMenu = NSMenuItem()
-            timeLeftMenu.title = timeLeft(with: TimeManager.sharedInstance.timer)
+            timeLeftMenu.title = timeLeft(with: timer)
             statusItem.menu?.insertItem(timeLeftMenu, at: 0)
             
             // Update start/stop menu item
